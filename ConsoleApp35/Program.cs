@@ -19,6 +19,12 @@ namespace ConsoleApp35
             listado.Add( new Auto {Nombre="f205",Modelo="Mazda", Anyo=2010} );
             listado.Add( new Auto {Nombre="f305",Modelo="Mazda", Anyo=2010} );
 
+            // linq
+            List<string> noDuplicados=listado
+                .GroupBy(alias=>alias.Modelo)
+                .Select(alias => alias.Key)
+                .ToList();
+
             // extender la lista de autos usando un dto llamado AutoExtendido
             List<AutoExtendido> listadoExtendido=
                     listado.Select( 
