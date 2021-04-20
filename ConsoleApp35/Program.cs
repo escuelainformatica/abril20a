@@ -12,12 +12,12 @@ namespace ConsoleApp35
         {
             List<Auto> listado=new List<Auto>();
 
-            listado.Add( new Auto {Nombre="306",Modelo="Peugeot", Anyo=2010} );
-            listado.Add( new Auto {Nombre="308",Modelo="Peugeot", Anyo=2010} );
-            listado.Add( new Auto {Nombre="310",Modelo="Peugeot", Anyo=2010} );
-            listado.Add( new Auto {Nombre="f105",Modelo="Mazda", Anyo=2010} );
-            listado.Add( new Auto {Nombre="f205",Modelo="Mazda", Anyo=2010} );
-            listado.Add( new Auto {Nombre="f305",Modelo="Mazda", Anyo=2010} );
+            listado.Add( new Auto {Nombre="306",Modelo="Peugeot", Anyo=2010, Cantidad=44} );
+            listado.Add( new Auto {Nombre="308",Modelo="Peugeot", Anyo=2010, Cantidad=77} );
+            listado.Add( new Auto {Nombre="310",Modelo="Peugeot", Anyo=2010,Cantidad=12} );
+            listado.Add( new Auto {Nombre="f105",Modelo="Mazda", Anyo=2010,Cantidad=20} );
+            listado.Add( new Auto {Nombre="f205",Modelo="Mazda", Anyo=2010,Cantidad=50} );
+            listado.Add( new Auto {Nombre="f305",Modelo="Mazda", Anyo=2010,Cantidad=60} );
 
             // linq
             List<string> noDuplicados=listado
@@ -42,9 +42,14 @@ namespace ConsoleApp35
                     .Select( alias=> new ModeloAgrupacion()
                     {
                         Modelo=alias.Key,
-                        Cantidad=alias.Count()
+                        ConteoVehiculosPorModelo=alias.Count(),
+                        CantidadStock=alias.Sum(k=>k.Cantidad)
+                        // Count, Sum, Min, Max, Avg, Desviacion
                     })
                     .ToList();
+
+            int numVehiculosEnStock=listado.Sum( alias => alias.Cantidad);
+
 
         }
     }

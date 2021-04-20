@@ -10,6 +10,8 @@ namespace ConsoleApp35
     class ModeloAgrupacion
     {
         public string Modelo {set;get;}
-        public int Cantidad {set; get;}
+        public int ConteoVehiculosPorModelo {set; get;}
+        public int CantidadStock {set; get;}
+
     }
 }

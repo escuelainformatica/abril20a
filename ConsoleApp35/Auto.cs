@@ -11,6 +11,11 @@ namespace ConsoleApp35
         public string Nombre {set; get;}
         public string Modelo {set; get;}
         public int Anyo {set; get;}
+        /// <summary>
+        /// Cantidad de vehiculos en stock
+        /// </summary>
+        public int Cantidad {set; get;}
+
 
     }
 }
